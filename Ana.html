@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maç Tahmin Çizelgesi</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: center;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+        }
+        input {
+            width: 50px;
+            text-align: center;
+        }
+    </style>
+    <script>
+        function hesapla() {
+            let kisiler = ["Kişi 1", "Kişi 2", "Kişi 3", "Kişi 4"];
+            let toplamlar = [0, 0, 0, 0];
+
+            for (let i = 1; i <= 5; i++) { // 5 maç var
+                for (let j = 0; j < 4; j++) { // 4 kişi tahmin yapıyor
+                    let input = document.getElementById("m" + i + "_k" + (j + 1));
+                    let deger = parseInt(input.value) || 0; // Boşsa 0 kabul et
+                    toplamlar[j] += deger;
+                }
+            }
+
+            // Sonuçları güncelle
+            for (let j = 0; j < 4; j++) {
+                document.getElementById("toplam" + (j + 1)).innerText = toplamlar[j];
+            }
+        }
+    </script>
+</head>
+<body>
+    <h2>Maç Tahmin Çizelgesi</h2>
+    <table>
+        <tr>
+            <th>Maç</th>
+            <th>Kişi 1</th>
+            <th>Kişi 2</th>
+            <th>Kişi 3</th>
+            <th>Kişi 4</th>
+        </tr>
+        <tr>
+            <td>Maç 1</td>
+            <td><input type="number" id="m1_k1" oninput="hesapla()"></td>
+            <td><input type="number" id="m1_k2" oninput="hesapla()"></td>
+            <td><input type="number" id="m1_k3" oninput="hesapla()"></td>
+            <td><input type="number" id="m1_k4" oninput="hesapla()"></td>
+        </tr>
+        <tr>
+            <td>Maç 2</td>
+            <td><input type="number" id="m2_k1" oninput="hesapla()"></td>
+            <td><input type="number" id="m2_k2" oninput="hesapla()"></td>
+            <td><input type="number" id="m2_k3" oninput="hesapla()"></td>
+            <td><input type="number" id="m2_k4" oninput="hesapla()"></td>
+        </tr>
+        <tr>
+            <td>Maç 3</td>
+            <td><input type="number" id="m3_k1" oninput="hesapla()"></td>
+            <td><input type="number" id="m3_k2" oninput="hesapla()"></td>
+            <td><input type="number" id="m3_k3" oninput="hesapla()"></td>
+            <td><input type="number" id="m3_k4" oninput="hesapla()"></td>
+        </tr>
+        <tr>
+            <td>Maç 4</td>
+            <td><input type="number" id="m4_k1" oninput="hesapla()"></td>
+            <td><input type="number" id="m4_k2" oninput="hesapla()"></td>
+            <td><input type="number" id="m4_k3" oninput="hesapla()"></td>
+            <td><input type="number" id="m4_k4" oninput="hesapla()"></td>
+        </tr>
+        <tr>
+            <td>Maç 5</td>
+            <td><input type="number" id="m5_k1" oninput="hesapla()"></td>
+            <td><input type="number" id="m5_k2" oninput="hesapla()"></td>
+            <td><input type="number" id="m5_k3" oninput="hesapla()"></td>
+            <td><input type="number" id="m5_k4" oninput="hesapla()"></td>
+        </tr>
+        <tr>
+            <th>Toplam</th>
+            <th id="toplam1">0</th>
+            <th id="toplam2">0</th>
+            <th id="toplam3">0</th>
+            <th id="toplam4">0</th>
+        </tr>
+    </table>
+</body>
+</html>
